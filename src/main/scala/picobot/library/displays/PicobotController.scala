@@ -1,26 +1,25 @@
 package picobot.library.displays
 
-import picobot.library.{Maze, Picobot, Rule}
-import scala.collection.AbstractSeq
+import picobot.library.{Map, Picobot, Rule}
 
 trait PicobotController {
-  protected var _maze: Maze = null
+  protected var _map: Map = null
   protected var _rules: Seq[Rule] = null
   protected var _bot: Picobot = null
 
   initBot()
 
   protected def initBot(): Unit = {
-    if (this.maze != null && this.rules != null) {
-      this._bot = new Picobot(maze, rules)
+    if (this.map != null && this.rules != null) {
+      this._bot = new Picobot(map, rules)
     }
   }
 
   def bot: Picobot = _bot
 
-  def maze: Maze = _maze
-  def maze_=(newMaze: Maze): Unit = {
-    this._maze = newMaze
+  def map: Map = _map
+  def map_=(newMap: Map): Unit = {
+    this._map = newMap
     initBot()
   }
 

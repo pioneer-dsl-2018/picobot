@@ -6,7 +6,7 @@ import picobot.library._
 import picobot.library.displays.PicobotGUIApp
 
 object InternalMaze extends PicobotGUIApp {
-  maze = Maze("resources" + File.separator + "empty.txt")
+  map = Map("resources" + File.separator + "empty.txt")
 
   rules =
     List(

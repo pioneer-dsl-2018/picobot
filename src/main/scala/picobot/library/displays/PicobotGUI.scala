@@ -53,20 +53,20 @@ trait PicobotGUIController extends PicobotController {this: JFXApp =>
   private lazy val buttonPane =
     new HBox{children = List(runButton, stopButton, stepButton, resetButton)}
 
-  // a pane that contains a visualization for each cell in the maze
-  private lazy val mazePane = new Pane{children = botboxes}
+  // a pane that contains a visualization for each cell in the map
+  private lazy val mapPane = new Pane{children = botboxes}
 
-  // a pane for the controller and the maze
-  private lazy val botPane = new VBox {children = List(buttonPane, mazePane)}
+  // a pane for the controller and the map
+  private lazy val botPane = new VBox {children = List(buttonPane, mapPane)}
 
   def makeStage(): PrimaryStage = {
     val bot = this.bot
-    val mazeWidth = if (this.bot == null) 0 else this.bot.maze.width
-    val mazeHeight = if (this.bot == null) 0 else this.bot.maze.height
-    mazePane.children = botboxes
+    val mapWidth = if (this.bot == null) 0 else this.bot.map.width
+    val mapHeight = if (this.bot == null) 0 else this.bot.map.height
+    mapPane.children = botboxes
     new JFXApp.PrimaryStage {
-      width = Math.max(buttonPane.width.value, CELL_SIZE * mazeWidth)
-      height = buttonPane.height.value + CELL_SIZE * (mazeHeight + 2)
+      width = Math.max(buttonPane.width.value, CELL_SIZE * mapWidth)
+      height = buttonPane.height.value + CELL_SIZE * (mapHeight + 2)
       scene = new Scene {
         content = botPane
       }
@@ -81,7 +81,7 @@ trait PicobotGUIController extends PicobotController {this: JFXApp =>
   abstract override def reset(): Unit = {
     stop()
     super.reset()
-    mazePane.children = botboxes
+    mapPane.children = botboxes
   }
 
   override def run(): Unit = {
@@ -100,7 +100,7 @@ trait PicobotGUIController extends PicobotController {this: JFXApp =>
     _: ActionEvent ⇒
       if (this.bot.canMove) {
         super.step()
-        mazePane.children = botboxes
+        mapPane.children = botboxes
       }
   }
 
@@ -112,7 +112,7 @@ trait PicobotGUIController extends PicobotController {this: JFXApp =>
   }
 
    /**
-   * Make a GUI version of the maze
+   * Make a GUI version of the map
    */
   def botboxes: Seq[Rectangle] = {
 
@@ -129,14 +129,14 @@ trait PicobotGUIController extends PicobotController {this: JFXApp =>
     if (this.bot == null)
       List()
     else
-      this.bot.maze.positions map makeCell
+      this.bot.map.positions map makeCell
   }
 
   /**
    * What color should a cell be?
    */
   def cellColor(pos: Position): Color = {
-    if (this.bot.maze.isWall(pos))
+    if (this.bot.map.isWall(pos))
       WALL_COLOR
     else if (pos == this.bot.position)
       BOT_COLOR
