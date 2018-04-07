@@ -1,12 +1,10 @@
 package pioneer
 
-import java.io.File
-
 import picobot.library._
-import picobot.library.displays.PicobotGUIApp
+import picobot.library.displays._
 
 object InternalEmpty extends PicobotGUIApp {
-  map = Map("resources" + File.separator + "empty.txt")
+  map = Map(resource("/empty.txt"))
 
   rules =
     List(
@@ -20,5 +18,3 @@ object InternalEmpty extends PicobotGUIApp {
 
   run()
 }
-
-
