@@ -1,7 +1,7 @@
 package pioneer
 
-import picobot.library._
-import picobot.library.displays._
+import picolib._
+import picolib.displays._
 
 object LibraryEmpty extends PicobotGUIApp {
   map = Map(resource("/empty.txt"))
