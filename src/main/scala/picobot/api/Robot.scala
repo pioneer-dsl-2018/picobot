@@ -1,5 +1,7 @@
 package picobot.api
 
-class Robot {
+import picolib.Rule
+
+class Robot(var rules: List[Rule] = List()) {
 
 }
