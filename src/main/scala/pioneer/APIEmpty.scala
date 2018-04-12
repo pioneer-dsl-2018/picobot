@@ -18,6 +18,6 @@ object APIEmpty extends PicobotGUIApp  {
        .goto(2)      // state 6
 
   rules = robot.rules
-  
+
   run()
 }
