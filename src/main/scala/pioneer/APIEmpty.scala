@@ -1,7 +1,7 @@
 package pioneer
 
-import picobot.library._
-import picobot.library.displays._
+import picolib._
+import picolib.displays._
 
 import picobot.api.Robot
 
