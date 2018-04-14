@@ -28,23 +28,55 @@ class Robot(var rules: List[Rule] = List()) {
       Surroundings(Anything,Anything, Anything, Blocked)
   }
 
-  def sweep(FutureDirection:MoveDirection): Robot={
+  def step(FutureDirection:MoveDirection): Robot={
 
     val Newrule = Rule(
       State(this.stateNow),
       identifyOpenSurroundings(FutureDirection),
       FutureDirection,
       State(this.stateNow+1))
+    this.stateNow = this.stateNow +1
     this.rules = this.rules :+ Newrule
 
+    //return this Robot object
     this
   }
 
-  def step(pos:MoveDirection): Robot={
+  def sweep(FutureDirection:MoveDirection): Robot={
 
+    val Newrule = List(
+
+      Rule(
+      State(this.stateNow),
+      identifyOpenSurroundings(FutureDirection),
+      FutureDirection,
+      State(this.stateNow)),
+
+      Rule(
+      State(this.stateNow),
+      identifyBlockedSurroundings(FutureDirection),
+      StayHere,
+      State(this.stateNow+1)
+
+      ))
+    this.stateNow = this.stateNow + 1
+    this.rules = this.rules ++ Newrule
+
+    //return this Robot object
+    this
   }
 
-  def goto(state: Int): Robot ={
+  def goto(Newstate: Int): Robot ={
+    val Newrule = Rule(
+      State(this.stateNow),
+      Surroundings(Anything, Anything, Anything, Anything),
+      StayHere,
+      State(Newstate)
+    )
+    this.rules = this.rules :+ Newrule
+
+    //return this Robot object
+    this
 
   }
 
