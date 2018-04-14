@@ -5,7 +5,7 @@ import picolib._
 class Robot(var rules: List[Rule] = List()) {
   private var stateNow: Int = 0
 /*
-  //Hope this works
+  //this will not work
   def identifyOpenSurroundings(FutureDirection:MoveDirection):Surroundings={
     if(FutureDirection==North)
       Surroundings(Open,Anything, Anything, Anything)

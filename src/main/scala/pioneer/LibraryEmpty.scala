@@ -44,7 +44,7 @@ object LibraryEmpty extends PicobotGUIApp {
         South,
         State(1)
       ),
-// always forgetting to put the commas after the parenthesis
+// always forget to put the commas after the parenthesis
 
     )
 

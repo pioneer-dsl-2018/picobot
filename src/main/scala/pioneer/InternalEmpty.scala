@@ -1,3 +1,4 @@
+
 package pioneer
 
 import picolib._
@@ -14,9 +15,9 @@ object InternalEmpty extends PicobotGUIApp with NaturalLanguage {
   0 sweep West
   1 sweep North
   2 sweep South
-  3 step East
+  3 step  East
   4 sweep North
-  5 step East
+  5 step  East
   6 goto 2
 
   rules = robot.rules
