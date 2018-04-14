@@ -4,7 +4,7 @@ import picolib._
 
 class Robot(var rules: List[Rule] = List()) {
   private var stateNow: Int = 0
-
+/*
   //Hope this works
   def identifyOpenSurroundings(FutureDirection:MoveDirection):Surroundings={
     if(FutureDirection==North)
@@ -27,6 +27,25 @@ class Robot(var rules: List[Rule] = List()) {
     else
       Surroundings(Anything,Anything, Anything, Blocked)
   }
+*/
+  def identifyOpenSurroundings(direction: MoveDirection): Surroundings =
+    direction match {
+      case North => Surroundings(Open, Anything, Anything, Anything)
+      case East  => Surroundings(Anything, Open, Anything, Anything)
+      case West  => Surroundings(Anything, Anything, Open, Anything)
+      case South => Surroundings(Anything, Anything, Anything, Open)
+    }
+
+
+  def identifyBlockedSurroundings(direction: MoveDirection): Surroundings =
+    direction match {
+      case North => Surroundings(Blocked, Anything, Anything, Anything)
+      case East  => Surroundings(Anything, Blocked, Anything, Anything)
+      case West  => Surroundings(Anything, Anything, Blocked, Anything)
+      case South => Surroundings(Anything, Anything, Anything, Blocked)
+    }
+
+
 
   def step(FutureDirection:MoveDirection): Robot={
 
