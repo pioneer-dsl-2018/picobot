@@ -8,11 +8,11 @@ trait NaturalLanguage {
 
   implicit class Rule(val StateNow: Int){
     def sweep (FutureDirection: MoveDirection): Robot={
-
+      this.StateNow = robot.stateNow
     }
 
     def goto (FutureState: Int): Robot = {
-
+      
     }
 
     def step (FutureDirection: MoveDirection): Robot = {
