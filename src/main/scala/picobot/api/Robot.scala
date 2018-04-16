@@ -3,7 +3,7 @@ package picobot.api
 import picolib._
 
 class Robot(var rules: List[Rule] = List()) {
-  private var stateNow: Int = 0
+   var stateNow: Int = 0
 
 
   def identifyOpenSurroundings(FutureDirection:MoveDirection):Surroundings={
