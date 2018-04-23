@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaSbtSettings">
+    <option name="customVMEnabled" value="true" />
+    <option name="customVMPath" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home" />
+    <option name="linkedExternalProjectsSettings">
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$USER_HOME$/.sbt/1.0/staging/9e8375c6ee13e8d977ee/picolib" />
+            <option value="$USER_HOME$/.sbt/1.0/staging/9e8375c6ee13e8d977ee/picolib/project" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.1.1" />
+      </SbtProjectSettings>
+    </option>
+  </component>
+</project>
