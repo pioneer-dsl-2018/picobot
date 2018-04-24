@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc391f64-ddbc-44f3-8ff1-04a5ed0b95dd" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/pioneer/APIEmpty.scala" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/pioneer/InternalEmpty.scala" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/picobot/api/Robot.scala" afterPath="$PROJECT_DIR$/src/main/scala/picobot/api/Robot.scala" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/picobot/internal/NaturalLanguage.scala" afterPath="$PROJECT_DIR$/src/main/scala/picobot/internal/NaturalLanguage.scala" />
     </list>
