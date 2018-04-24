@@ -1,6 +1,6 @@
 package pioneer
 
-import picolib._
+import picolib.{State, _}
 import picolib.displays._
 
 object LibraryEmpty extends PicobotGUIApp {
@@ -10,10 +10,42 @@ object LibraryEmpty extends PicobotGUIApp {
     List(
       Rule(
         State(0),
-        Surroundings(Anything, Anything, Anything, Anything),
-        StayHere,
+        Surroundings(Open, Anything, Anything, Anything),
+        North,
         State(0)
-      )
+      ),
+      Rule(
+        State(0),
+        Surroundings(Blocked, Anything, Anything, Anything),
+        StayHere,
+        State(1)
+      ),
+      Rule(
+        State(1),
+        Surroundings(Anything, Open, Anything, Anything),
+        East,
+        State(1)
+      ),
+        Rule(
+        State(1),
+        Surroundings(Anything, Blocked, Anything, Anything),
+        StayHere,
+        State(2)
+      ),
+        Rule(
+        State(2),
+        Surroundings(Anything, Anything, Open, Anything),
+        West,
+        State(2)
+      ),
+        Rule(
+        State(2),
+        Surroundings(Anything, Anything, Blocked, Anything),
+        South,
+        State(1)
+      ),
+// always forget to put the commas after the parenthesis
+
     )
 
   run()
